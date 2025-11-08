@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성심당 연계 지하상가 유휴 공간 활성화 컨설팅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(198, 12, 48, 0.08);
+            z-index: 1000;
+            padding: 18px 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
+            color: #0056B3;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 15px;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        
+        .nav a:hover {
+            color: #C60C30;
+            background: rgba(198, 12, 48, 0.05);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 243, 224, 0.6) 0%, rgba(255, 235, 238, 0.6) 50%, rgba(230, 244, 255, 0.6) 100%);
+            padding: 80px 20px 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '🥐';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.08;
+            top: 20px;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '🐻';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.08;
+            bottom: 30px;
+            right: 10%;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        
+        .hero .highlight {
+            color: #C60C30;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero .highlight::after {
+            content: '🍞';
+            position: absolute;
+            font-size: 24px;
+            top: -30px;
+            right: -35px;
+        }
+        
+        .hero .subtitle {
+            font-size: 22px;
+            color: #0056B3;
+            font-weight: 600;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .mascot-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+            border: 3px dashed #ffc107;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 40px auto 0;
+            max-width: 700px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.2);
+        }
+        
+        .mascot-emoji {
+            font-size: 60px;
+            animation: wiggle 1s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .mascot-text {
+            text-align: left;
+            color: #5d4037;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 90px 20px;
+            position: relative;
+        }
+        
+        .section-emoji {
+            font-size: 60px;
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #0056B3;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 600;
+        }
+        
+        .problem-section {
+            background: linear-gradient(135deg, rgba(255, 240, 245, 0.5) 0%, rgba(240, 248, 255, 0.5) 100%);
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(198, 12, 48, 0.15);
+            border-color: #C60C30;
+        }
+        
+        .problem-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .problem-card h3 {
+            color: #C60C30;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .problem-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .conclusion-box {
+            background: linear-gradient(135deg, #C60C30 0%, #a00a28 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: 0 10px 40px rgba(198, 12, 48, 0.3);
+            position: relative;
+        }
+        
+        .conclusion-box::before {
+            content: '🐻';
+            position: absolute;
+            font-size: 70px;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.6;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .conclusion-box::after {
+            content: '🥖';
+            position: absolute;
+            font-size: 70px;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.6;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .value-table {
+            width: 100%;
+            margin-top: 50px;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-table th {
+            background: linear-gradient(135deg, #0056B3 0%, #003d82 100%);
+            color: white;
+            padding: 30px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .value-table td {
+            padding: 30px;
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .value-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .value-table tr:hover td {
+            background: #fffbf0;
+        }
+        
+        .value-table td:first-child {
+            font-weight: 700;
+            color: #C60C30;
+            width: 35%;
+            font-size: 17px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 45px;
+            border-radius: 20px;
+            border: 3px solid #f0f0f0;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #C60C30 0%, #0056B3 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            border-color: #C60C30;
+            box-shadow: 0 10px 40px rgba(198, 12, 48, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .feature-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #C60C30 0%, #a00a28 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(198, 12, 48, 0.4);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border: 3px solid white;
+        }
+        
+        .feature-emoji {
+            font-size: 40px;
+            margin-left: 10px;
+        }
+        
+        .feature-card h3 {
+            color: #0056B3;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .feature-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .trust-section {
+            background: linear-gradient(135deg, rgba(230, 244, 255, 0.4) 0%, rgba(255, 243, 224, 0.4) 100%);
+        }
+        
+        .trust-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .trust-list {
+            background: white;
+            padding: 45px;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            border: 3px solid #e3f2fd;
+        }
+        
+        .trust-list li {
+            padding: 25px 0;
+            border-bottom: 2px dashed #e0e0e0;
+            color: #333;
+            line-height: 1.8;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .trust-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .trust-list .emoji {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+        
+        .trust-list strong {
+            color: #0056B3;
+            font-weight: 700;
+        }
+        
+        .quote {
+            background: linear-gradient(135deg, #0056B3 0%, #003d82 100%);
+            color: white;
+            padding: 45px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 21px;
+            font-style: italic;
+            line-height: 1.8;
+            box-shadow: 0 10px 40px rgba(0, 86, 179, 0.3);
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '💡';
+            font-size: 50px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .pricing-table {
+            max-width: 900px;
+            margin: 50px auto 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid #f0f0f0;
+        }
+        
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .pricing-table th {
+            background: linear-gradient(135deg, #0056B3 0%, #003d82 100%);
+            color: white;
+            padding: 28px 25px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 17px;
+        }
+        
+        .pricing-table td {
+            padding: 35px 25px;
+            text-align: center;
+            border-bottom: 2px dashed #f0f0f0;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:hover td {
+            background: #fffbf0;
+        }
+        
+        .pricing-table .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #C60C30;
+        }
+        
+        .benefit-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe0b2 100%);
+            color: #e65100;
+            padding: 20px 30px;
+            border-radius: 50px;
+            margin-top: 40px;
+            font-weight: 700;
+            border: 3px dashed #ff9800;
+            font-size: 17px;
+            box-shadow: 0 5px 20px rgba(255, 152, 0, 0.2);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 243, 224, 0.6) 0%, rgba(255, 235, 238, 0.6) 50%, rgba(230, 244, 255, 0.6) 100%);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: '🐻';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.05;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .cta-section::after {
+            content: '🥐';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.05;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .cta-emoji {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .cta-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .cta-subtitle {
+            font-size: 19px;
+            color: #555;
+            margin-bottom: 50px;
+            line-height: 1.9;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #C60C30 0%, #a00a28 100%);
+            color: white;
+            padding: 28px 65px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(198, 12, 48, 0.3);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '🤝';
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(198, 12, 48, 0.4);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #999;
+            padding: 50px 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer-emoji {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero .subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+            }
+            
+            .nav-container {
+                gap: 15px;
+            }
+            
+            .features-grid,
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-button {
+                padding: 22px 45px;
+                font-size: 18px;
+            }
+            
+            .mascot-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .mascot-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#problem">🔥 문제</a>
+            <a href="#solution">🤝 솔루션</a>
+            <a href="#features">🚀 혜택</a>
+            <a href="#trust">📈 신뢰</a>
+            <a href="#pricing">💰 가격</a>
+            <a href="#cta">✨ 신청</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <span class="hero-emoji">🥐🏪🐻</span>
+            <h1>텅 빈 지하상가에 <span class="highlight">성심당 웨이팅 고객</span>을<br>유입시키는 유일한 해법</h1>
+            <p class="subtitle">"매일 2시간 이상 대기하는 고객의 잠재 수요를<br>지금, 당신의 공간으로 전환시키십시오."</p>
+            
+            <div class="mascot-box">
+                <span class="mascot-emoji">🐻</span>
+                <div class="mascot-text">
+                    대전의 마스코트 꿈돌이가 응원합니다!<br>
+                    "성심당 빵 맛있게 먹을 공간도 필요해요~ 지하상가로 고고!"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="problem" class="problem-section">
+        <div class="container">
+            <span class="section-emoji">🔥</span>
+            <h2 class="section-title">대전의 두 얼굴</h2>
+            <p class="section-subtitle">넘치는 수요와 버려진 공간의 비극적 대비</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">⏱️🥖</span>
+                    <h3>Pain 1. 성심당 앞의 끝없는 웨이팅</h3>
+                    <p>핵심 고객(관광객)이 수십 분에서 수 시간 동안 길거리에서 대기하며 지역 체류 시간 및 소비 동선이 성심당 주변에만 고착됩니다.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <span class="problem-icon">🏚️🚇</span>
+                    <h3>Pain 2. 지하상가 유휴 공간의 증가</h3>
+                    <p>텅 빈 지하상가 폐점 가게들은 지역 경제의 '암(癌)'과 같습니다. 고객이 지하로 내려갈 '명확한 이유'가 없습니다.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <span class="problem-icon">📉🏙️</span>
+                    <h3>Pain 3. 상권 침체 우려</h3>
+                    <p>성심당 주변은 번성하지만, 지하상가를 포함한 주변 상권은 외면받아 지역 경제 상생 구조가 무너지고 있습니다.</p>
+                </div>
+            </div>
+            
+            <div class="conclusion-box">
+                <strong>결론:</strong> 고객은 넘쳐나는데, 그들을 끌어들여 소비하게 할<br>'공식적인 쉼터와 연계 동선'이 부재합니다.
+            </div>
+        </div>
+    </section>
+
+    <section id="solution">
+        <div class="container">
+            <span class="section-emoji">🤝🍞</span>
+            <h2 class="section-title">솔루션</h2>
+            <p class="section-subtitle">성심당과 지역 상권의 동반 성장을 위한 최적의 '연결고리'를 설계합니다</p>
+            
+            <p style="text-align: center; color: #555; font-size: 18px; line-height: 1.8; max-width: 900px; margin: 0 auto 50px;">
+                본 컨설팅 서비스는 성심당 본사, 지하상가 관리 주체, 그리고 주변 상권 모두를 만족시키는<br>
+                <strong style="color: #C60C30;">🥐 '성심당 연계 유휴 공간 활성화 컨설팅 및 코디네이팅' 🐻</strong>을 제공합니다.
+            </p>
+            
+            <table class="value-table">
+                <tr>
+                    <th>🎯 핵심 가치 제안</th>
+                    <th>📝 설명</th>
+                </tr>
+                <tr>
+                    <td>🏪 유휴 공간의 즉각적인 '가치' 전환</td>
+                    <td>폐점 가게를 <strong>성심당 빵 취식 전용 카페 🥐☕</strong> 또는 <strong>연계 체험 공간</strong>으로 변모시키는 마스터 플랜을 제안합니다.</td>
+                </tr>
+                <tr>
+                    <td>👣 고객 체류 시간 및 소비 동선 확장</td>
+                    <td>'빵 구매 → 지하상가 카페/체험 이용 → 주변 상권 둘러보기'로 이어지는 새로운 동선을 설계하여 지하상가 내 <strong>체류 시간을 최소 40분 이상 증가</strong>시킵니다.</td>
+                </tr>
+                <tr>
+                    <td>🤝 상권과의 마찰 Zero 상생 모델 설계</td>
+                    <td>기존 지하상가 내 카페 상권과의 마찰을 최소화하는 <strong>'음료 외주/교차 할인 모델' ☕💝</strong>을 포함한 정교한 상생 구조를 코디네이팅합니다.</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <span class="section-emoji">🚀🥐</span>
+            <h2 class="section-title">핵심 혜택</h2>
+            <p class="section-subtitle">웨이팅을 수익으로 바꾸는 3가지 마스터 플랜</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">1<span class="feature-emoji">🏪</span></div>
+                    <h3>[공간 활성화] 최적의 유휴 공간 진단 및 설계</h3>
+                    <p>성심당과의 동선, 임대료, 규모 등을 종합 분석하여 '성심당 연계 카페 🥐☕'로 활용할 <strong>최적의 지하상가 유휴 공간을 선정</strong>하고, 초기 투자 대비 효과 극대화 방안을 제시합니다.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">2<span class="feature-emoji">🤝</span></div>
+                    <h3>[협력 코디네이팅] 성심당 본사와의 공식 협력 기반 마련</h3>
+                    <p>아이디어의 제안 단계부터 공식 문서 작업, 상표권/라이선스 문제 해결을 위한 협의 과정 전반을 전문적으로 코디네이팅하여 <strong>협력 성사율을 극대화 📈</strong>합니다.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-number">3<span class="feature-emoji">🐻</span></div>
+                    <h3>[지속 가능성] 지역 투어/미션 연계 시스템 구축</h3>
+                    <p>카페 방문 고객을 'D-코인 미션 투어 🪙' 등 지역 내 다른 놀거리와 자연스럽게 연계하여, 공간 활성화가 <strong>일회성이 아닌 지속 가능한 수익 모델 ♻️</strong>이 되도록 설계합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trust" class="trust-section">
+        <div class="container">
+            <span class="section-emoji
